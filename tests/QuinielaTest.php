@@ -79,4 +79,18 @@ class QuinielaTest extends TestCase
         // Assert
         $this->assertEquals('francia-alemania: X', $resultado);
     }
+
+    /** @test */
+    public function apostarConSignoInvalidoDevuelveSignoNoValido(): void
+    {
+        // Arrange
+        $marcador = $this->createMock(Resultados::class);
+        $quiniela = new Quiniela($marcador);
+
+        // Act
+        $resultado = $quiniela->ejecutar('apostar italia-portugal 9');
+
+        // Assert
+        $this->assertEquals('Signo no válido', $resultado);
+    }
 }
