@@ -24,6 +24,10 @@ class Quiniela
             return $this->aciertos();
         }
 
+        if (str_starts_with($instruccionNormalizada, 'quitar')) {
+            return 'quitar';
+        }
+
         return '';
     }
 
