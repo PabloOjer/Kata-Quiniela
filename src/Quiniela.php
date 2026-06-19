@@ -14,7 +14,7 @@ class Quiniela
 
     public function ejecutar(string $instruccion): string
     {
-        if (str_starts_with($instruccion, 'apostar')) {
+        if (str_starts_with(strtolower($instruccion), 'apostar')) {
             return $this->apostar($instruccion);
         }
 
