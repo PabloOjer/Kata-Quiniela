@@ -14,7 +14,7 @@ class Quiniela
     {
         if (str_starts_with($instruccion, 'apostar')) {
             $partes = explode(' ', $instruccion);
-            return $partes[1];
+            return $partes[1] . ': ' . $partes[2];
         }
 
         return '';
