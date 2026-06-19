@@ -1,0 +1,3 @@
+/vendor
+build.sh
+.phpunit.cache
