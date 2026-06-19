@@ -32,9 +32,14 @@ class Quiniela
 
         $this->apuestas[$partes[1]] = $signo;
 
+        return $this->formatearQuiniela();
+    }
+
+    private function formatearQuiniela(): string
+    {
         $entradas = [];
-        foreach ($this->apuestas as $partido => $signoGuardado) {
-            $entradas[] = $partido . ': ' . $signoGuardado;
+        foreach ($this->apuestas as $partido => $signo) {
+            $entradas[] = $partido . ': ' . $signo;
         }
 
         return implode(', ', $entradas);
