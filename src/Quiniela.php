@@ -37,8 +37,11 @@ class Quiniela
 
     private function formatearQuiniela(): string
     {
+        $apuestasOrdenadas = $this->apuestas;
+        ksort($apuestasOrdenadas);
+
         $entradas = [];
-        foreach ($this->apuestas as $partido => $signo) {
+        foreach ($apuestasOrdenadas as $partido => $signo) {
             $entradas[] = $partido . ': ' . $signo;
         }
 
