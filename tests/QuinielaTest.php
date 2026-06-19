@@ -210,4 +210,20 @@ class QuinielaTest extends TestCase
         // Assert
         $this->assertNotEmpty($resultado);
     }
+
+    /** @test */
+    public function quitarUnPartidoDevuelveLaQuinielaRestante(): void
+    {
+        // Arrange
+        $marcador = $this->createMock(Resultados::class);
+        $quiniela = new Quiniela($marcador);
+        $quiniela->ejecutar('apostar españa-brasil 1');
+        $quiniela->ejecutar('apostar francia-alemania X');
+
+        // Act
+        $resultado = $quiniela->ejecutar('quitar españa-brasil');
+
+        // Assert
+        $this->assertEquals('francia-alemania: X', $resultado);
+    }
 }
