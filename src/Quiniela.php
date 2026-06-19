@@ -14,8 +14,10 @@ class Quiniela
 
     public function ejecutar(string $instruccion): string
     {
-        if (str_starts_with(strtolower($instruccion), 'apostar')) {
-            return $this->apostar($instruccion);
+        $instruccionNormalizada = strtolower($instruccion);
+
+        if (str_starts_with($instruccionNormalizada, 'apostar')) {
+            return $this->apostar($instruccionNormalizada);
         }
 
         return '';
@@ -24,7 +26,7 @@ class Quiniela
     private function apostar(string $instruccion): string
     {
         $partes = explode(' ', $instruccion);
-        $partido = strtolower($partes[1]);
+        $partido = $partes[1];
         $signo = strtoupper($partes[2]);
 
         if (!$this->esSignoValido($signo)) {
