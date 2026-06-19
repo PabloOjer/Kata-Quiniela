@@ -108,4 +108,19 @@ class QuinielaTest extends TestCase
         // Assert
         $this->assertEquals('españa-brasil: 1, francia-alemania: X', $resultado);
     }
+
+    /** @test */
+    public function lasApuestasSeDevuelvenOrdenadasAlfabeticamente(): void
+    {
+        // Arrange
+        $marcador = $this->createMock(Resultados::class);
+        $quiniela = new Quiniela($marcador);
+        $quiniela->ejecutar('apostar francia-alemania X');
+
+        // Act
+        $resultado = $quiniela->ejecutar('apostar españa-brasil 1');
+
+        // Assert
+        $this->assertEquals('españa-brasil: 1, francia-alemania: X', $resultado);
+    }
 }
