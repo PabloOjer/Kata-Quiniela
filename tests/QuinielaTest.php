@@ -179,4 +179,20 @@ class QuinielaTest extends TestCase
         // Assert
         $this->assertEquals('Aciertos: 0', $resultado);
     }
+
+    /** @test */
+    public function aciertosDevuelveUnoSiLaApuestaCoincideConElResultadoReal(): void
+    {
+        // Arrange
+        $marcador = $this->createMock(Resultados::class);
+        $marcador->method('getResultado')->with('españa-brasil')->willReturn('1');
+        $quiniela = new Quiniela($marcador);
+        $quiniela->ejecutar('apostar españa-brasil 1');
+
+        // Act
+        $resultado = $quiniela->ejecutar('aciertos');
+
+        // Assert
+        $this->assertEquals('Aciertos: 1', $resultado);
+    }
 }
