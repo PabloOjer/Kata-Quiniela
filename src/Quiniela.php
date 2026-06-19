@@ -25,7 +25,7 @@ class Quiniela
         }
 
         if (str_starts_with($instruccionNormalizada, 'quitar')) {
-            return 'quitar';
+            return $this->quitar($instruccionNormalizada);
         }
 
         return '';
@@ -56,6 +56,20 @@ class Quiniela
         }
 
         return 'Aciertos: ' . $aciertos;
+    }
+
+    private function quitar(string $instruccion): string
+    {
+        $partes = explode(' ', $instruccion);
+        $partido = $partes[1];
+
+        unset($this->apuestas[$partido]);
+
+        if (empty($this->apuestas)) {
+            return 'La quiniela está vacía';
+        }
+
+        return $this->formatearQuiniela();
     }
 
     private function formatearQuiniela(): string
