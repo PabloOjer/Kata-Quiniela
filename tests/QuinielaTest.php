@@ -51,4 +51,18 @@ class QuinielaTest extends TestCase
         // Assert
         $this->assertStringContainsString('españa-brasil', $resultado);
     }
+
+    /** @test */
+    public function apostarUnPartidoDevuelveElPartidoConElSignoFormateado(): void
+    {
+        // Arrange
+        $marcador = $this->createMock(Resultados::class);
+        $quiniela = new Quiniela($marcador);
+
+        // Act
+        $resultado = $quiniela->ejecutar('apostar españa-brasil 1');
+
+        // Assert
+        $this->assertEquals('españa-brasil: 1', $resultado);
+    }
 }
