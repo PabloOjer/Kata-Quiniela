@@ -65,4 +65,18 @@ class QuinielaTest extends TestCase
         // Assert
         $this->assertEquals('españa-brasil: 1', $resultado);
     }
+
+    /** @test */
+    public function apostarConSignoEnMinusculaLoDevuelveEnMayuscula(): void
+    {
+        // Arrange
+        $marcador = $this->createMock(Resultados::class);
+        $quiniela = new Quiniela($marcador);
+
+        // Act
+        $resultado = $quiniela->ejecutar('apostar francia-alemania x');
+
+        // Assert
+        $this->assertEquals('francia-alemania: X', $resultado);
+    }
 }
