@@ -195,4 +195,19 @@ class QuinielaTest extends TestCase
         // Assert
         $this->assertEquals('Aciertos: 1', $resultado);
     }
+
+    /** @test */
+    public function reconocerComandoQuitarDevuelveStringNoVacio(): void
+    {
+        // Arrange
+        $marcador = $this->createMock(Resultados::class);
+        $quiniela = new Quiniela($marcador);
+        $quiniela->ejecutar('apostar españa-brasil 1');
+
+        // Act
+        $resultado = $quiniela->ejecutar('quitar españa-brasil');
+
+        // Assert
+        $this->assertNotEmpty($resultado);
+    }
 }
