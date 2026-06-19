@@ -22,6 +22,6 @@ class Quiniela
     private function apostar(string $instruccion): string
     {
         $partes = explode(' ', $instruccion);
-        return $partes[1] . ': ' . $partes[2];
+        return $partes[1] . ': ' . strtoupper($partes[2]);
     }
 }
