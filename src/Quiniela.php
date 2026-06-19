@@ -12,6 +12,10 @@ class Quiniela
 
     public function ejecutar(string $instruccion): string
     {
+        if (str_starts_with($instruccion, 'apostar')) {
+            return 'apostar';
+        }
+
         return '';
     }
 }
