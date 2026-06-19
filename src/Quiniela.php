@@ -24,13 +24,14 @@ class Quiniela
     private function apostar(string $instruccion): string
     {
         $partes = explode(' ', $instruccion);
+        $partido = strtolower($partes[1]);
         $signo = strtoupper($partes[2]);
 
         if (!$this->esSignoValido($signo)) {
             return 'Signo no válido';
         }
 
-        $this->apuestas[strtolower($partes[1])] = $signo;
+        $this->apuestas[$partido] = $signo;
 
         return $this->formatearQuiniela();
     }
