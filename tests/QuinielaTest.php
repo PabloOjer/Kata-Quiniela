@@ -165,4 +165,18 @@ class QuinielaTest extends TestCase
         // Assert
         $this->assertNotEmpty($resultado);
     }
+
+    /** @test */
+    public function aciertosConQuinielaVaciaDevuelveAciertosCero(): void
+    {
+        // Arrange
+        $marcador = $this->createMock(Resultados::class);
+        $quiniela = new Quiniela($marcador);
+
+        // Act
+        $resultado = $quiniela->ejecutar('aciertos');
+
+        // Assert
+        $this->assertEquals('Aciertos: 0', $resultado);
+    }
 }
