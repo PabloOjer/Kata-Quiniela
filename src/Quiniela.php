@@ -6,6 +6,8 @@ namespace Deg540\CleanCodeKata9;
 
 class Quiniela
 {
+    private array $apuestas = [];
+
     public function __construct(private Resultados $marcador)
     {
     }
@@ -28,7 +30,14 @@ class Quiniela
             return 'Signo no válido';
         }
 
-        return $partes[1] . ': ' . $signo;
+        $this->apuestas[$partes[1]] = $signo;
+
+        $entradas = [];
+        foreach ($this->apuestas as $partido => $signoGuardado) {
+            $entradas[] = $partido . ': ' . $signoGuardado;
+        }
+
+        return implode(', ', $entradas);
     }
 
     private function esSignoValido(string $signo): bool
