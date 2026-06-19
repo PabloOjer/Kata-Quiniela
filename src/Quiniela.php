@@ -24,10 +24,15 @@ class Quiniela
         $partes = explode(' ', $instruccion);
         $signo = strtoupper($partes[2]);
 
-        if (!in_array($signo, ['1', 'X', '2'])) {
+        if (!$this->esSignoValido($signo)) {
             return 'Signo no válido';
         }
 
         return $partes[1] . ': ' . $signo;
+    }
+
+    private function esSignoValido(string $signo): bool
+    {
+        return in_array($signo, ['1', 'X', '2']);
     }
 }
