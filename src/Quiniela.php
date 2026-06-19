@@ -46,7 +46,7 @@ class Quiniela
     {
         $aciertos = 0;
         foreach ($this->apuestas as $partido => $signo) {
-            if ($this->marcador->getResultado($partido) === $signo) {
+            if ($this->marcador->obtenerResultado($partido) === $signo) {
                 $aciertos++;
             }
         }
