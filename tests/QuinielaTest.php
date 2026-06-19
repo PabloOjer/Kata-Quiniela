@@ -151,4 +151,18 @@ class QuinielaTest extends TestCase
         // Assert
         $this->assertEquals('españa-brasil: 1', $resultado);
     }
+
+    /** @test */
+    public function reconocerComandoAciertosDevuelveStringNoVacio(): void
+    {
+        // Arrange
+        $marcador = $this->createMock(Resultados::class);
+        $quiniela = new Quiniela($marcador);
+
+        // Act
+        $resultado = $quiniela->ejecutar('aciertos');
+
+        // Assert
+        $this->assertNotEmpty($resultado);
+    }
 }
