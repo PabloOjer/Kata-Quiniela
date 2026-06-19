@@ -6,5 +6,5 @@ namespace Deg540\CleanCodeKata9;
 
 interface Resultados
 {
-    public function obtenerResultado(string $partido): ?string;
+    public function getResultado(string $partido): ?string;
 }

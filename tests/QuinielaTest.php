@@ -185,7 +185,7 @@ class QuinielaTest extends TestCase
     {
         // Arrange
         $marcador = $this->createMock(Resultados::class);
-        $marcador->method('obtenerResultado')->with('españa-brasil')->willReturn('1');
+        $marcador->method('getResultado')->with('españa-brasil')->willReturn('1');
         $quiniela = new Quiniela($marcador);
         $quiniela->ejecutar('apostar españa-brasil 1');
 
