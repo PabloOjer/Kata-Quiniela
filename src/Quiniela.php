@@ -22,6 +22,12 @@ class Quiniela
     private function apostar(string $instruccion): string
     {
         $partes = explode(' ', $instruccion);
-        return $partes[1] . ': ' . strtoupper($partes[2]);
+        $signo = strtoupper($partes[2]);
+
+        if (!in_array($signo, ['1', 'X', '2'])) {
+            return 'Signo no válido';
+        }
+
+        return $partes[1] . ': ' . $signo;
     }
 }
