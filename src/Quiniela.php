@@ -13,10 +13,15 @@ class Quiniela
     public function ejecutar(string $instruccion): string
     {
         if (str_starts_with($instruccion, 'apostar')) {
-            $partes = explode(' ', $instruccion);
-            return $partes[1] . ': ' . $partes[2];
+            return $this->apostar($instruccion);
         }
 
         return '';
+    }
+
+    private function apostar(string $instruccion): string
+    {
+        $partes = explode(' ', $instruccion);
+        return $partes[1] . ': ' . $partes[2];
     }
 }
