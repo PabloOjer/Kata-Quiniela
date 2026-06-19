@@ -21,7 +21,7 @@ class Quiniela
         }
 
         if ($instruccionNormalizada === 'aciertos') {
-            return 'aciertos';
+            return 'Aciertos: 0';
         }
 
         return '';
