@@ -20,6 +20,10 @@ class Quiniela
             return $this->apostar($instruccionNormalizada);
         }
 
+        if ($instruccionNormalizada === 'aciertos') {
+            return 'aciertos';
+        }
+
         return '';
     }
 
