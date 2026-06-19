@@ -21,7 +21,7 @@ class Quiniela
         }
 
         if ($instruccionNormalizada === 'aciertos') {
-            return 'Aciertos: 0';
+            return $this->aciertos();
         }
 
         return '';
@@ -40,6 +40,18 @@ class Quiniela
         $this->apuestas[$partido] = $signo;
 
         return $this->formatearQuiniela();
+    }
+
+    private function aciertos(): string
+    {
+        $aciertos = 0;
+        foreach ($this->apuestas as $partido => $signo) {
+            if ($this->marcador->getResultado($partido) === $signo) {
+                $aciertos++;
+            }
+        }
+
+        return 'Aciertos: ' . $aciertos;
     }
 
     private function formatearQuiniela(): string
