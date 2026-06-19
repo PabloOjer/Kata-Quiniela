@@ -37,4 +37,18 @@ class QuinielaTest extends TestCase
         // Assert
         $this->assertNotEmpty($resultado);
     }
+
+    /** @test */
+    public function apostarUnPartidoDevuelveElNombreDelPartido(): void
+    {
+        // Arrange
+        $marcador = $this->createMock(Resultados::class);
+        $quiniela = new Quiniela($marcador);
+
+        // Act
+        $resultado = $quiniela->ejecutar('apostar españa-brasil 1');
+
+        // Assert
+        $this->assertStringContainsString('españa-brasil', $resultado);
+    }
 }
