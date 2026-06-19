@@ -30,7 +30,7 @@ class Quiniela
             return 'Signo no válido';
         }
 
-        $this->apuestas[$partes[1]] = $signo;
+        $this->apuestas[strtolower($partes[1])] = $signo;
 
         return $this->formatearQuiniela();
     }
