@@ -29,7 +29,7 @@ class Quiniela
         }
 
         if ($instruccionNormalizada === 'vaciar') {
-            return 'vaciar';
+            return 'La quiniela está vacía';
         }
 
         return '';
