@@ -254,4 +254,18 @@ class QuinielaTest extends TestCase
         // Assert
         $this->assertNotEmpty($resultado);
     }
+
+    /** @test */
+    public function vaciarDevuelveLaQuinielaEstaVacia(): void
+    {
+        // Arrange
+        $marcador = $this->createMock(Resultados::class);
+        $quiniela = new Quiniela($marcador);
+
+        // Act
+        $resultado = $quiniela->ejecutar('vaciar');
+
+        // Assert
+        $this->assertEquals('La quiniela está vacía', $resultado);
+    }
 }
