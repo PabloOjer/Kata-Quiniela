@@ -240,4 +240,18 @@ class QuinielaTest extends TestCase
         // Assert
         $this->assertEquals('La apuesta seleccionada no existe', $resultado);
     }
+
+    /** @test */
+    public function reconocerComandoVaciarDevuelveStringNoVacio(): void
+    {
+        // Arrange
+        $marcador = $this->createMock(Resultados::class);
+        $quiniela = new Quiniela($marcador);
+
+        // Act
+        $resultado = $quiniela->ejecutar('vaciar');
+
+        // Assert
+        $this->assertNotEmpty($resultado);
+    }
 }
