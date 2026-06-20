@@ -268,4 +268,21 @@ class QuinielaTest extends TestCase
         // Assert
         $this->assertEquals('La quiniela está vacía', $resultado);
     }
+
+    /** @test */
+    public function vaciarElimnaTodasLasApuestasDelEstado(): void
+    {
+        // Arrange
+        $marcador = $this->createMock(Resultados::class);
+        $quiniela = new Quiniela($marcador);
+        $quiniela->ejecutar('apostar españa-brasil 1');
+        $quiniela->ejecutar('apostar francia-alemania X');
+        $quiniela->ejecutar('vaciar');
+
+        // Act
+        $resultado = $quiniela->ejecutar('apostar italia-portugal 2');
+
+        // Assert
+        $this->assertEquals('italia-portugal: 2', $resultado);
+    }
 }
