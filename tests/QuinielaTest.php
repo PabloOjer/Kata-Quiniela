@@ -300,4 +300,20 @@ class QuinielaTest extends TestCase
         // Assert
         $this->assertEquals('italia-portugal: 2', $resultado);
     }
+
+    /** @test */
+    public function aciertosNoContaLaApuestaSiElServicioDevuelveNull(): void
+    {
+        // Arrange
+        $marcador = $this->createMock(Resultados::class);
+        $marcador->method('getResultado')->with('italia-portugal')->willReturn(null);
+        $quiniela = new Quiniela($marcador);
+        $quiniela->ejecutar('apostar italia-portugal 1');
+
+        // Act
+        $resultado = $quiniela->ejecutar('aciertos');
+
+        // Assert
+        $this->assertEquals('Aciertos: 0', $resultado);
+    }
 }
