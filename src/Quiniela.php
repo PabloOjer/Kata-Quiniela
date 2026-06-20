@@ -29,7 +29,7 @@ class Quiniela
         }
 
         if ($instruccionNormalizada === 'vaciar') {
-            return 'La quiniela está vacía';
+            return $this->vaciar();
         }
 
         return '';
@@ -78,6 +78,13 @@ class Quiniela
         }
 
         return $this->formatearQuiniela();
+    }
+
+    private function vaciar(): string
+    {
+        $this->apuestas = [];
+
+        return 'La quiniela está vacía';
     }
 
     private function formatearQuiniela(): string
