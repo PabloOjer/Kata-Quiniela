@@ -226,4 +226,18 @@ class QuinielaTest extends TestCase
         // Assert
         $this->assertEquals('francia-alemania: X', $resultado);
     }
+
+    /** @test */
+    public function quitarUnPartidoInexistenteDevuelveLaApuestaSeleccionadaNoExiste(): void
+    {
+        // Arrange
+        $marcador = $this->createMock(Resultados::class);
+        $quiniela = new Quiniela($marcador);
+
+        // Act
+        $resultado = $quiniela->ejecutar('quitar italia-portugal');
+
+        // Assert
+        $this->assertEquals('La apuesta seleccionada no existe', $resultado);
+    }
 }
