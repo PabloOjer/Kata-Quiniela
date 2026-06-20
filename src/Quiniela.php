@@ -28,6 +28,10 @@ class Quiniela
             return $this->quitar($instruccionNormalizada);
         }
 
+        if ($instruccionNormalizada === 'vaciar') {
+            return 'vaciar';
+        }
+
         return '';
     }
 
