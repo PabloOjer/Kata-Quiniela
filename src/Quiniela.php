@@ -6,6 +6,8 @@ namespace Deg540\CleanCodeKata9;
 
 class Quiniela
 {
+    private const QUINIELA_VACIA = 'La quiniela está vacía';
+
     private array $apuestas = [];
 
     public function __construct(private Resultados $marcador)
@@ -74,7 +76,7 @@ class Quiniela
         unset($this->apuestas[$partido]);
 
         if (empty($this->apuestas)) {
-            return 'La quiniela está vacía';
+            return self::QUINIELA_VACIA;
         }
 
         return $this->formatearQuiniela();
@@ -84,7 +86,7 @@ class Quiniela
     {
         $this->apuestas = [];
 
-        return 'La quiniela está vacía';
+        return self::QUINIELA_VACIA;
     }
 
     private function formatearQuiniela(): string
