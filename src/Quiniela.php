@@ -63,6 +63,10 @@ class Quiniela
         $partes = explode(' ', $instruccion);
         $partido = $partes[1];
 
+        if (!isset($this->apuestas[$partido])) {
+            return 'La apuesta seleccionada no existe';
+        }
+
         unset($this->apuestas[$partido]);
 
         if (empty($this->apuestas)) {
