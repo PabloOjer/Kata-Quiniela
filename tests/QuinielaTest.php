@@ -197,7 +197,7 @@ class QuinielaTest extends TestCase
     }
 
     /** @test */
-    public function reconocerComandoQuitarDevuelveStringNoVacio(): void
+    public function quitarElUnicoPartidoDevuelveLaQuinielaEstaVacia(): void
     {
         // Arrange
         $marcador = $this->createMock(Resultados::class);
