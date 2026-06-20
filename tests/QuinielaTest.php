@@ -242,6 +242,21 @@ class QuinielaTest extends TestCase
     }
 
     /** @test */
+    public function apostarSobreUnPartidoYaApostadoActualizaElSigno(): void
+    {
+        // Arrange
+        $marcador = $this->createMock(Resultados::class);
+        $quiniela = new Quiniela($marcador);
+        $quiniela->ejecutar('apostar españa-brasil 1');
+
+        // Act
+        $resultado = $quiniela->ejecutar('apostar españa-brasil X');
+
+        // Assert
+        $this->assertEquals('españa-brasil: X', $resultado);
+    }
+
+    /** @test */
     public function reconocerComandoVaciarDevuelveStringNoVacio(): void
     {
         // Arrange
